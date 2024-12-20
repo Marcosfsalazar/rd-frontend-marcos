@@ -5,9 +5,12 @@ import RecommendationList from './components/RecommendationList/RecommendationLi
 function App() {
   const [recommendations, setRecommendations ] = useState([])
 
-  /**
-   * Dadas atualizações no formulário, necessário atualizar a lista de recomendações
-   */
+  const handleOnSubmit = (formData, getRecommendations) => {
+    const dataRecommendations = getRecommendations(formData);
+    setRecommendations(dataRecommendations);
+  };
+  
+
 
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
@@ -19,7 +22,7 @@ function App() {
           </p>
         </div>
         <div>
-          <Form />
+          <Form onSubmit={handleOnSubmit} />
         </div>
         <div>
           <RecommendationList recommendations={recommendations} />
