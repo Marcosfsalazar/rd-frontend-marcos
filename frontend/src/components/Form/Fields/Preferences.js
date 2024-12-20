@@ -20,7 +20,7 @@ function Preferences({
   };
 
   return (
-    <div className="mb-4">
+    <div className="mb-4" data-testid="preferences">
       <h2 className="text-lg font-bold mb-2">Preferências:</h2>
       <ul>
         {preferences.map((preference, index) => (

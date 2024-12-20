@@ -14,7 +14,7 @@ function Features({ features, selectedFeatures = [], onFeatureChange }) {
   };
 
   return (
-    <div className="mb-4">
+    <div className="mb-4" data-testid="features">
       <h2 className="text-lg font-bold mb-2">Funcionalidades:</h2>
       <ul>
         {features.map((feature, index) => (
