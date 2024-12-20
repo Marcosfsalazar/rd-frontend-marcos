@@ -24,7 +24,7 @@ function App() {
         <div>
           <Form onSubmit={handleOnSubmit} />
         </div>
-        <div>
+        <div className='p-4'>
           <RecommendationList recommendations={recommendations} />
         </div>
       </div>

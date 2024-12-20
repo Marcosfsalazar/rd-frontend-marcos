@@ -3,3 +3,21 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --yellow: #eab308;
+  --blue: #14213d;
+  --gray: #e5e5e5;
+}
+
+@layer components {
+  .brutal {
+    @apply border-4 rounded-sm border-black shadow-md;
+  }
+
+  .brutal-button {
+    @apply bg-black text-yellow font-bold hover:text-white;
+  }
+}
