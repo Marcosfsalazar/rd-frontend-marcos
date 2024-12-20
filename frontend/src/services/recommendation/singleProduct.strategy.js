@@ -1,19 +1,21 @@
 class SingleProductRecommendation {
   getRecommendations(preferences, features, products) {
-    const filteredByPreferences = products.filter(product =>
-      preferences.every(pref => product.preferences.includes(pref))
-    );
+    const filtered = products.filter(product => {
+      const matchesPreferences =
+        preferences.length === 0 || preferences.some(pref => product.preferences.includes(pref));
+      const matchesFeatures =
+        features.length === 0 || features.some(feat => product.features.includes(feat));
 
-    const filteredByFeatures = filteredByPreferences.filter(product =>
-      features.every(feat => product.features.includes(feat))
-    );
+      return matchesPreferences && matchesFeatures;
+    });
 
-    if (filteredByFeatures.length > 1) {
-      return [filteredByFeatures[filteredByFeatures.length - 1]];
+    if (filtered.length > 1) {
+      return [filtered[filtered.length - 1]];
     }
 
-    return filteredByFeatures;
+    return filtered;
   }
 }
 
 export default SingleProductRecommendation;
+
