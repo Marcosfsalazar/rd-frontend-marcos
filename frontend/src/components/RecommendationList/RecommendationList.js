@@ -3,11 +3,11 @@ import React from 'react';
 function RecommendationList({ recommendations }) {
   return (
     <div>
-      <h2 className="text-lg font-bold mb-4">Lista de Recomendações:</h2>
+      <h2 className="text-lg mb-4 font-bebas tracking-wider">Lista de Recomendações:</h2>
 
-      {recommendations.length === 0 && <p>Nenhuma recomendação encontrada.</p>}
+      {recommendations.length === 0 && <p className='font-light font-body'>Nenhuma recomendação encontrada.</p>}
 
-      <ul>
+      <ul className='font-body'>
         {recommendations.map((recommendation, index) => (
           <li key={index} className="mb-2">
             {recommendation.name}

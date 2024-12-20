@@ -15,10 +15,10 @@ function Features({ features, selectedFeatures = [], onFeatureChange }) {
 
   return (
     <div className="mb-4" data-testid="features">
-      <h2 className="text-lg font-bold mb-2">Funcionalidades:</h2>
+      <h2 className="text-lg font-bebas tracking-wider mb-2">Funcionalidades:</h2>
       <ul>
         {features.map((feature, index) => (
-          <li key={index} className="mb-2">
+          <li key={index} className="mb-2 font-body">
             <Checkbox
               value={feature}
               checked={currentFeatures.includes(feature)}
