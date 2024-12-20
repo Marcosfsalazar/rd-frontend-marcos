@@ -69,7 +69,7 @@ Para completar este teste, você deve concentrar-se principalmente em três arqu
 
 ## Como Executar
 
-1. Clone o repositório: `git clone <URL_DO_REPOSITORIO>`
+1. Clone o repositório: `git clone https://github.com/Marcosfsalazar/rd-frontend-marcos`
 2. Instale as dependências: `yarn install`
 3. Para instalar o projeto, execute o script `./install.sh` 
 4. Inicie a aplicação: `yarn start`
@@ -92,6 +92,24 @@ Para completar este teste, você deve concentrar-se principalmente em três arqu
 7. O serviço deve ser modular e facilmente extensível para futuras atualizações e adições de funcionalidades.
 
 Certifique-se de que todos os critérios de aceite são atendidos durante o desenvolvimento do projeto.
+
+## Lógica de recomendação - detalhes da implementação
+ - A lógica de recomendação foi organizada em arquivos separados, cada um com uma responsabilidade clara:
+
+```recommendation.strategy.js:```
+- Define o formato geral que todas as estratégias de recomendação devem seguir. É onde estabelecemos quais métodos e dados cada estratégia precisa ter.
+
+```singleProduct.strategy.js:```
+- Implementa a lógica de recomendação quando o usuário seleciona “SingleProduct”. Aqui filtramos os produtos e retornamos apenas um único produto de acordo com as preferências e funcionalidades escolhidas.
+
+```multipleProducts.strategy.js:```
+- Implementa a lógica de recomendação para o modo “MultipleProducts”. Neste arquivo, filtramos os produtos e retornamos uma lista completa dos que atendem às preferências e funcionalidades do usuário.
+
+```recommendationFactory.js:```
+- Escolhe automaticamente qual estratégia de recomendação usar (SingleProduct ou MultipleProducts) com base no tipo selecionado pelo usuário. Assim, o restante do código não precisa saber detalhes sobre como criar ou qual classe usar, apenas pede para a fábrica fornecer a estratégia correta.
+
+```recommendation.service.js:```
+- É o ponto central que recebe as preferências, funcionalidades e tipo de recomendação do usuário, pede à fábrica a estratégia apropriada e usa essa estratégia para obter a lista final de produtos recomendados. Em seguida, retorna o resultado para o restante da aplicação.
 
 ## Autor
 
